@@ -19,13 +19,25 @@ class Polygon {
 
 class Triangle extends Polygon {
   get isValid() {
-    if ((this.array[0] + this.array[1]) > this.array[2]) {
-      return true
-    } else {
-      return false
+    let arrayLength = this.array.length
+
+    if (arrayLength === 3) {
+      let sideOne = this.array[0];
+      let sideTwo = this.array[1];
+      let sideThree = this.array[2];
+
+      if ((sideOne + sideTwo) > sideThree) {
+        return true;
+      } else if ((sideOne + sideThree) > sideTwo) {
+        return true;
+      } else if ((sideTwo + sideThree) > sideOne) {
+        return true;
+      } else {
+        return false;
+      }
     }
+    return false;
   }
-  //console.log(this.array)
 }
 
 class Square extends Polygon {
